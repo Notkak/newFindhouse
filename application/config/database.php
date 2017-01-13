@@ -77,11 +77,7 @@ $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
 	'username' => 'root',
-<<<<<<< HEAD
 	'password' => '1234',
-=======
-	'password' => '',
->>>>>>> 1a91571083cc1b56197c25dabdf2cff2ebf54c15
 	'database' => 'findhouse',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
