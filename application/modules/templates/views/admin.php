@@ -371,7 +371,11 @@
 
 			<!-- start: Content -->
 			<div id="content" class="span10">
-        Hello World
+        <?php
+					if(isset($view_file)){
+						$this->load->view($view_module.'/'.$view_file);
+					}
+				?>
 			<!-- end: Content -->
 		</div><!--/#content.span10-->
 		</div><!--/fluid-row-->
