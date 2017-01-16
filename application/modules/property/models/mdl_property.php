@@ -1,5 +1,5 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class Mdl_perfectmodel extends CI_Model
+class mdl_property extends CI_Model
 {
 
 function __construct() {
@@ -32,7 +32,7 @@ function get_with_limit($limit, $offset, $order_by)
 function get_where($id)
 {
     $table = $this->get_table();
-    $this->db->where('id', $id);
+    $this->db->where('property_id', $id);
     $query=$this->db->get($table);
     return $query;
 }
@@ -54,14 +54,14 @@ function _insert($data)
 function _update($id, $data)
 {
     $table = $this->get_table();
-    $this->db->where('id', $id);
+    $this->db->where('property_id', $id);
     $this->db->update($table, $data);
 }
 
 function _delete($id)
 {
     $table = $this->get_table();
-    $this->db->where('id', $id);
+    $this->db->where('property_id', $id);
     $this->db->delete($table);
 }
 
@@ -85,7 +85,7 @@ function count_all()
 function get_max()
 {
     $table = $this->get_table();
-    $this->db->select_max('id');
+    $this->db->select_max('property_id');
     $query = $this->db->get($table);
     $row=$query->row();
     $id=$row->id;
