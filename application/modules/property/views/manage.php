@@ -35,26 +35,36 @@
           </tr>
         </thead>
         <tbody>
+          <?php foreach ($query->result() as $row) {
+                  $edit = base_url()."property/create/".$row->property_id;
+                  $del = base_url()."property/del/".$row->property_id;
+                  $status = $row->activation;
+                  if($status == "Yes"){
+                    $status_label = "success";
+                    $status_desc = "Yes";
+                  }else{
+                    $status_label = "default";
+                    $status_desc = "No";
+                  }
+            ?>
         <tr>
-          <td>xxx</td>
-          <td class="center">xxx</td>
-          <td class="center">xxx</td>
+          <td><?= $row->property_id ?></td>
+          <td class="center"><?= $row->propertyname ?></td>
+          <td class="center"><?= $row->created ?></td>
           <td class="center">
-            <span class="label label-success">Yes</span>
+            <span class="label label-<?= $status_label ?>"><?= $status_desc ?></span>
           </td>
           <td class="center">
-            <a class="btn btn-success" href="#">
-              <i class="halflings-icon white zoom-in"></i>
-            </a>
-            <a class="btn btn-info" href="#">
+            <a class="btn btn-info" href="<?= $edit ?>">
               <i class="halflings-icon white edit"></i>
             </a>
-            <a class="btn btn-danger" href="#">
+            <a class="btn btn-danger" href="<?= $del ?>">
               <i class="halflings-icon white trash"></i>
             </a>
           </td>
         </tr>
-
+        <?php
+        }?>
         </tbody>
       </table>
     </div>

@@ -9,6 +9,7 @@ function manage(){
   $this->load->module('site_security');
   $this->site_security->_make_sure_is_admin();
 
+  $data['query']=$this->get('created');
   $data['view_module']="property";
   $data['view_file']="manage";
   $this->load->module('templates');
@@ -86,6 +87,11 @@ function fetch_data_from_db($update_id){
   }
   return $data;
 }
+function del(){
+  $id=$this->uri->segment(3);
+  $this->_delete($id);
+  redirect('property/manage/');
+}
 function get($order_by)
 {
     $this->load->model('mdl_property');
@@ -106,6 +112,7 @@ function get_with_limit($limit, $offset, $order_by)
 
 function get_where($id)
 {
+
     if (!is_numeric($id)) {
         die('Non-numeric variable!');
     }
